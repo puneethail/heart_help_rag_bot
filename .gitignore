@@ -1,0 +1,21 @@
+# IDE/OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Build artifacts and compiled files
+*.pyc
+__pycache__/
+dist/
+build/
+
+# Dependencies folder
+venv/
+node_modules/
+
+# Secrets and environment variables
+.env
+config.local.json
+
+# Logs
+*.log
