@@ -1,6 +1,7 @@
 import google.genai as genai
 from src.constants import GOOGLE_API_KEY, MODEL, CROMA_DB_PATH, COLLECTION_NAME, MAX_CONVERSATION_HISTORY
 from src.backend.vectordb_handler import VectorDBManagerOpenAI
+from src.backend.prompt_builder import construct_prompt
 
 from src.backend.conversation import ConversationHistory
 # from src.constants.prompt import heart_prompt
@@ -19,7 +20,7 @@ class llm:
 
     def genrate_response(self, query: str):
         context = self.vdb_query(prompt= prompt)
-        prompt = f"Context:\n{context}\n\nQuestion: {query}"
+        prompt = construct_prompt(query= query, context= context)
         # prompt = heart_prompt + "\n" + prompt
         response = self.client.models.generate_content(
             model= self.model,
@@ -35,16 +36,8 @@ class llm:
         history_context = self.conversation.get_history_string()
         context = self.vdb_query(query= query)
         # Build prompt with history
-        prompt = f"""Previous Conversation:
-        {history_context}
-
-        Context (from documents):
-        {context}
-
-        Current Question: {query}
-
-        Please answer the current question, considering the conversation history if relevant."""
-
+        prompt = construct_prompt(query= query, context= context, chat_history = history_context)
+        
         response = self.client.models.generate_content(
             model=self.model,
             contents=prompt,
