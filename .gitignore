@@ -21,3 +21,6 @@ config.local.json
 *.log
 
 *.gitignore
+
+test.py
+test.ipynb
