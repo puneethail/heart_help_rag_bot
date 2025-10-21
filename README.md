@@ -11,15 +11,17 @@ This project implements a RAG-based chatbot that leverages ChromaDB for vector s
 ```
 heart_help_rag_bot/
 ├── .gitignore
-├── requirements.txt          # Project dependencies
-├── test.ipynb               # Interactive Jupyter notebook for testing
-├── test.py                  # Backend CLI testing script
-├── test_frontend.py         # Frontend testing script with Gradio
-├── chroma_db/              # Vector database storage
-└── src/                    # Source code directory
-    ├── constants.py        # Configuration and constants
-    └── backend/
-        └── llm.py         # LLM implementation with history
+├── README.md
+├── requirements.txt
+├── test.ipynb
+├── test.py
+├── test_frontend.py
+├── chroma_db/
+└── src/
+    ├── backend/
+    ├── constants/
+    ├── docs/
+    └── notebooks/
 ```
 
 ## 🛠️ Technologies Used

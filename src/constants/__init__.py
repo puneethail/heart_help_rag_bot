@@ -11,7 +11,7 @@ MODEL: str = "gemini-2.5-flash"
 
 # CromaDB
 COLLECTION_NAME = "heart_data_vb"
-CROMA_DB_PATH = r"src\chroma_data"
+CROMA_DB_PATH = r"chroma_db"
 
 
 # conversation

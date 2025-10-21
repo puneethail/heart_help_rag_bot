@@ -24,5 +24,5 @@ def construct_prompt(prompt_data:str = prompt_data ,query : str = None, context:
     return prompt
 
 json_prompt = construct_prompt(query= "Hey1", context= "hey heyh heyy", chat_history= "hey_2")
-print(json_prompt)
+
 

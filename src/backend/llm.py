@@ -29,7 +29,9 @@ class llm:
 
         return response.text
     def vdb_query(self, query):
-        return self.vdb.query(query = query)
+        contecxt = self.vdb.query(query = query)
+        print(contecxt)
+        return contecxt
 
     def llm_with_history(self ,query:str):
         # Get formatted history
